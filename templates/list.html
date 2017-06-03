@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{%block title%}{{ title }}{%endblock%}
+
+{%block content%}
+    <h2>{{ title}} </h2>
+    <table>
+        <tr>
+        {% for item in menu %}
+            <th>{{ item }}</th>
+        {% endfor %}
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for item in row %}
+                    <td> {{ item }} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for("display_main_page") }}">Back to Home</a>
+{%endblock%}

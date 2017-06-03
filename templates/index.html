@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{%block title%}{{ title }}{%endblock%}
+
+{%block content%}
+<div class="content">
+    <h1>Application Process part 2</h1>
+    <h3><a href="{{ url_for("display_mentors_and_schools") }}">Mentors and schools</a></h3>
+    <h3><a href="{{ url_for("display_mentors_and_all_schools") }}">All schools</a></h3>
+    <h3><a href="{{ url_for("display_mentors_by_country") }}">Mentors by country</a></h3>
+    <h3><a href="{{ url_for("display_school_and_contact_person") }}">Contacts</a></h3>
+    <h3><a href="{{ url_for("display_applicants") }}">Applicants</a></h3>
+    <h3><a href="{{ url_for("display_applicants_and_mentors") }}">Applicants and mentors</a></h3>
+</div>
+{%endblock%}
