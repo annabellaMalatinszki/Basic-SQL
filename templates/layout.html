@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" sizes="24x24" href="{{url_for('static', filename='icon-idea.png')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
