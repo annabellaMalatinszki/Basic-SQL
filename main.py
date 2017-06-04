@@ -15,7 +15,7 @@ def display_mentors_and_schools():
     ordered by the mentors id column.
     """
     title = "Mentors and Schools"
-    menu = ["Mentor Id", "Mentor name", "City", "Country"]
+    menu = ["Mentor Id", "Mentor name", "School", "Country"]
     mentors_and_schools = get_mentor_name_school_country()
     return render_template("list.html", title=title, menu=menu, data=mentors_and_schools)
 

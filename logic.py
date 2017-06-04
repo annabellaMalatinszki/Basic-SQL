@@ -44,6 +44,7 @@ def get_applicants():
             FROM applicants
             LEFT JOIN applicants_mentors
             ON applicants.id = applicants_mentors.applicant_id
+            WHERE creation_date > (date '2016-01-01')
             ORDER BY creation_date DESC;"""
     result = data_manager.send_query(SQL)
     return result
