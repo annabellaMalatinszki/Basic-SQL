@@ -22,7 +22,13 @@ def display_mentors_and_schools():
 
 @app.route("/all_school")
 def display_mentors_and_all_schools():
-    pass
+    """Return the name of the mentors plus the name and country of the school
+    ordered by the mentors id column, plus all schools even without assigned mentors.
+    """
+    title = "Mentors and All Schools"
+    menu = ["Mentor Id", "Mentor name", "City", "Country"]
+    mentors_and_all_schools = get_mentor_name_all_schools_country()
+    return render_template("list.html", title=title, menu=menu, data=mentors_and_all_schools)
 
 
 @app.route("/mentors_by_country")
