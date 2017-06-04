@@ -3,8 +3,8 @@
 {%block title%}{{ title }}{%endblock%}
 
 {%block content%}
-    <h2>{{ title}} </h2>
-    <table>
+    <h2 id="subtitle">{{ title}} </h2>
+    <table class="center">
         <tr>
         {% for item in menu %}
             <th>{{ item }}</th>
@@ -18,5 +18,5 @@
             </tr>
         {% endfor %}
     </table>
-    <a href="{{ url_for("display_main_page") }}">Back to Home</a>
+    <a id="back" href="{{ url_for("display_main_page") }}">Back to Home</a>
 {%endblock%}
