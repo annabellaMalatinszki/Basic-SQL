@@ -11,7 +11,13 @@ def display_main_page():
 
 @app.route("/mentors")
 def display_mentors_and_schools():
-    pass
+    """Return the name of the mentors plus the name and country of the school
+    ordered by the mentors id column.
+    """
+    title = "Mentors and Schools"
+    menu = ["Mentor Id", "Mentor name", "City", "Country"]
+    mentors_and_schools = get_mentor_name_school_country()
+    return render_template("list.html", title=title, menu=menu, data=mentors_and_schools)
 
 
 @app.route("/all_school")
