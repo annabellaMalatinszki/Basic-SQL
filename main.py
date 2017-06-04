@@ -67,7 +67,14 @@ def display_applicants():
 
 @app.route("/applicants_and_mentors")
 def display_applicants_and_mentors():
-    pass
+    """Show the result of a query that returns the first name and the code of the applicants plus
+     the name of the assigned mentor (joining through the applicants_mentors table) ordered by 
+     the applicants id column.
+     """
+    title = "Applicants and Mentors"
+    menu = ["Applicant Id", "Application Code", "First Name", "Assigned Mentor"]
+    applicants_and_mentors = get_applicants_and_mentors()
+    return render_template("list.html", title=title, menu=menu, data=applicants_and_mentors)
 
 
 if __name__ == '__main__':

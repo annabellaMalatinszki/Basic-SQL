@@ -47,3 +47,24 @@ def get_applicants():
             ORDER BY creation_date DESC;"""
     result = data_manager.send_query(SQL)
     return result
+
+
+def get_applicants_and_mentors():
+    SQL = """SELECT applicants.id, applicants.application_code, applicants.first_name, CONCAT(mentors.first_name, ' ', mentors.last_name) AS mentor_name
+        FROM applicants
+        LEFT JOIN applicants_mentors
+        ON applicants.id = applicants_mentors.applicant_id
+        LEFT JOIN mentors
+        ON applicants_mentors.mentor_id = mentors.id
+        WHERE CONCAT(mentors.first_name, ' ', mentors.last_name) != ' '
+        UNION
+        SELECT applicants.id, applicants.application_code, applicants.first_name, mentors.first_name
+        FROM applicants
+        LEFT JOIN applicants_mentors
+        ON applicants.id = applicants_mentors.applicant_id
+        LEFT JOIN mentors
+        ON applicants_mentors.mentor_id = mentors.id
+        WHERE CONCAT(mentors.first_name, mentors.last_name) = ''
+        ORDER BY id;"""
+    result = data_manager.send_query(SQL)
+    return result
