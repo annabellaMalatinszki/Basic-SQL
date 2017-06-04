@@ -27,3 +27,13 @@ def get_mentors_by_country():
             GROUP BY schools.country;"""
     result = data_manager.send_query(SQL)
     return result
+
+
+def get_school_contact_person():
+    SQL = """SELECT schools.name, CONCAT(mentors.first_name, ' ', mentors.last_name) AS mentor_name
+            FROM schools
+            INNER JOIN mentors
+            ON schools.contact_person = mentors.id
+            ORDER BY schools.name;"""
+    result = data_manager.send_query(SQL)
+    return result

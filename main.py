@@ -44,7 +44,13 @@ def display_mentors_by_country():
 
 @app.route("/contacts")
 def display_school_and_contact_person():
-    pass
+    """Show the result of a query that returns the name of the school plus the name
+    of contact person at the school (from the mentors table) ordered by the name of the school.abs
+    """
+    title = "Contact Persons"
+    menu = ["School", "Contact Person"]
+    school_contact_person = get_school_contact_person()
+    return render_template("list.html", title=title, menu=menu, data=school_contact_person)
 
 
 @app.route("/applicants")
