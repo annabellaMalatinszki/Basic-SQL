@@ -37,3 +37,13 @@ def get_school_contact_person():
             ORDER BY schools.name;"""
     result = data_manager.send_query(SQL)
     return result
+
+
+def get_applicants():
+    SQL = """SELECT application_code, first_name, creation_date
+            FROM applicants
+            LEFT JOIN applicants_mentors
+            ON applicants.id = applicants_mentors.applicant_id
+            ORDER BY creation_date DESC;"""
+    result = data_manager.send_query(SQL)
+    return result

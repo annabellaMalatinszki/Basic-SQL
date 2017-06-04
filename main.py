@@ -55,7 +55,14 @@ def display_school_and_contact_person():
 
 @app.route("/applicants")
 def display_applicants():
-    pass
+    """Show the result of a query that returns the first name and the code of the applicants plus 
+    the creation_date of the application (joining with the applicants_mentors table) ordered by 
+    the creation_date in descending order.
+    """
+    title = "Applicants after 2016-01-01"
+    menu = ["Application Code", "First name", "Creation Date"]
+    applicants = get_applicants()
+    return render_template("list.html", title=title, menu=menu, data=applicants)
 
 
 @app.route("/applicants_and_mentors")
