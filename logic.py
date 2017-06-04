@@ -17,3 +17,13 @@ def get_mentor_name_all_schools_country():
             ON mentors.city = schools.city;"""
     result = data_manager.send_query(SQL)
     return result
+
+
+def get_mentors_by_country():
+    SQL = """ SELECT schools.country, COUNT(mentors.id)
+            FROM schools
+            LEFT JOIN mentors
+            ON schools.city = mentors.city
+            GROUP BY schools.country;"""
+    result = data_manager.send_query(SQL)
+    return result

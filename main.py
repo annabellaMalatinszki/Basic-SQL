@@ -33,7 +33,13 @@ def display_mentors_and_all_schools():
 
 @app.route("/mentors_by_country")
 def display_mentors_by_country():
-    pass
+    """Show the result of a query that returns the number of the mentors 
+    per country ordered by the name of the countries.
+    """
+    title = "Number of Mentors per Country"
+    menu = ["Country", "Number of mentors"]
+    mentors_by_country = get_mentors_by_country()
+    return render_template("list.html", title=title, menu=menu, data=mentors_by_country)
 
 
 @app.route("/contacts")
