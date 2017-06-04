@@ -26,7 +26,7 @@ def display_mentors_and_all_schools():
     ordered by the mentors id column, plus all schools even without assigned mentors.
     """
     title = "Mentors and All Schools"
-    menu = ["Mentor Id", "Mentor name", "City", "Country"]
+    menu = ["Mentor Id", "Mentor name", "School", "Country"]
     mentors_and_all_schools = get_mentor_name_all_schools_country()
     return render_template("list.html", title=title, menu=menu, data=mentors_and_all_schools)
 
